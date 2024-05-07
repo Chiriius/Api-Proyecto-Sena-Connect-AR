@@ -113,7 +113,7 @@ export const login = async (req: Request, res:Response) => {
                 ciudadUsuario: user.ciudad,
                 barrioUsuario:user.barrio,
                 direccionUsuario: user.direccion,
-                fechaNacimientoUsuario: user.fechaNacimiento,
+                fechaNacimientoUsuario: user.fechanacimiento,
                 generoUsuario: user.genero,
                 uid : user.uid,
                 token:token
