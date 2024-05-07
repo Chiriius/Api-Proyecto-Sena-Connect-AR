@@ -11,8 +11,8 @@ export interface User {
     direccion:string;
     genero:string;
     rol : number;
-    fechanacimiento?:Date | null;
-    fecharegistro? : Date | null;
+    fechaNacimiento?:Date | null;
+    fechaRegistro? : Date | null;
 
     
 
