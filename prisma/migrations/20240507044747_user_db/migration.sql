@@ -12,8 +12,8 @@ CREATE TABLE "user" (
     "direccion" TEXT NOT NULL,
     "genero" TEXT NOT NULL,
     "rol" INTEGER NOT NULL,
-    "fechaNacimiento" TIMESTAMP(3),
-    "fechaRegistro" TIMESTAMP(3),
+    "fechanacimiento" TIMESTAMP(3),
+    "fecharegistro" TIMESTAMP(3),
 
     CONSTRAINT "user_pkey" PRIMARY KEY ("id")
 );

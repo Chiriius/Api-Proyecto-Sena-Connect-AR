@@ -26,8 +26,8 @@ model user {
   direccion String
   genero String
   rol  Int
-  fechaNacimiento  DateTime?
-  fechaRegistro    DateTime?
+  fechanacimiento  DateTime?
+  fecharegistro    DateTime?
 }
 
 

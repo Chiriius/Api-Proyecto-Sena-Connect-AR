@@ -34,7 +34,7 @@ export const register = async (req: Request, res: Response) => {
         rolN = 4;
     }
 
-    const fechaRegistro: Date = new Date();
+    const fecharegistro: Date = new Date();
 
     try {
         if (!contrasena) {
@@ -61,7 +61,7 @@ export const register = async (req: Request, res: Response) => {
                 direccion,
                 genero,
                 rol: rolN,
-                fechaRegistro
+                fecharegistro
             }
         });
 

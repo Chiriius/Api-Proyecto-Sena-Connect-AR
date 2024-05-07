@@ -20,7 +20,7 @@ export const updateUser = async (req:Request, res:Response) =>{
         genero,
         rol,
         uid,
-        fechaNacimiento,
+        fechanacimiento,
     } = req.body;
     const id = parseInt(req.body.id, 10);
     try {
@@ -72,8 +72,8 @@ export const updateUser = async (req:Request, res:Response) =>{
         }
         
        
-          if (fechaNacimiento) {
-            dataToUpdate.fechaNacimiento = fechaNacimiento
+          if (fechanacimiento) {
+            dataToUpdate.fechaNacimiento = fechanacimiento
         }
 
         const user = await prisma.update({
@@ -99,7 +99,7 @@ export const updateUser = async (req:Request, res:Response) =>{
             ciudadUsuario: ciudad,
             barrioUsuario: barrio,
             direccionUsuario: direccion,
-            fechaNacimientoUsuario: fechaNacimiento,
+            fechaNacimientoUsuario: fechanacimiento,
             generoUsuario: genero,
             
 
