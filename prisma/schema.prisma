@@ -30,4 +30,11 @@ model user {
   fecharegistro    DateTime?
 }
 
+model marker {
+  mar_id Int @id @default(autoincrement())
+  uid String @unique
+  mar_name String
+  mar_description String
+
+}
 

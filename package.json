@@ -3,13 +3,10 @@
   "version": "1.0.0",
   "description": "Proyecto node para consumo de app movil en unity",
   "main": "src/app.js",
-
   "scripts": {
     "dev": "tsnd --respawn --clear src/server.ts",
     "build": "rimraf ./dist && tsc",
     "start": "node dist/server.js"
- 
-
   },
   "author": "Miguel GN",
   "license": "ISC",
