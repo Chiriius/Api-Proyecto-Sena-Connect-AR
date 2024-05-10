@@ -128,3 +128,56 @@ export const updateUser = async (req:Request, res:Response) =>{
 
 
 }
+
+export const getAllUsers = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const users = await prisma.findMany()
+        res.status(200).json(users);
+    } catch (error: any) {
+        console.log(error)
+        res.status(500).json({ error: 'Hubo un error, pruebe más tarde' })
+    }
+}
+
+export const getUserById = async (req: Request, res: Response): Promise<void> => {
+    const userId = parseInt(req.params.id)
+    try {
+        const user = await prisma.findUnique({
+            where: {
+                id: userId
+            }
+        })
+        if (!user) {
+            res.status(404).json({ error: 'El usuario no fue encontrado' })
+            return
+        }
+        res.status(200).json(user)
+    } catch (error: any) {
+        console.log(error)
+        res.status(500).json({ error: 'Hubo un error, pruebe más tarde' })
+    }
+}
+
+export const deleteUser = async (req: Request, res: Response): Promise<void> => {
+    const userId = parseInt(req.params.id)
+    try {
+        await prisma.delete({
+            where: {
+                id: userId
+            }
+        })
+
+        res.status(200).json({
+            message: `El usuario ${userId} ha sido eliminado`
+        }).end()
+
+    } catch (error: any) {
+        if (error?.code == 'P2025') {
+            res.status(404).json('Usuario no encontrado')
+        } else {
+            console.log(error)
+            res.status(500).json({ error: 'Hubo un error, pruebe más tarde' })
+        }
+    }
+
+}

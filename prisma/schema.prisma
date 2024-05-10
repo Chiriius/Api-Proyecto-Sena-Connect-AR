@@ -31,10 +31,18 @@ model user {
 }
 
 model marker {
-  mar_id Int @id @default(autoincrement())
-  uid String @unique
-  mar_name String
+  mar_id        Int    @id @default(autoincrement())
+  uid           String  @unique
+  mar_name      String
   mar_description String
-
+  routes        route[]
 }
 
+model route {
+  rout_id        Int     @id @default(autoincrement())
+  uid            String  @unique
+  rout_name      String
+  rout_image     String
+  marker         marker  @relation(fields: [rout_marker_fk], references: [mar_id])
+  rout_marker_fk Int
+}

@@ -3,10 +3,5 @@ export interface Marker {
     uid : String;
     name : String;
     description : String;
-    
-
-
-    
-
 
 }
