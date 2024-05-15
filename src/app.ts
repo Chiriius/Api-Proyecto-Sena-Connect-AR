@@ -5,8 +5,10 @@ import express from 'express';
 import authRoutes from './routes/authRoutes';
 import usersRoutes from './routes/usersRoutes';
 import markerRoutes from './routes/markerRoutes';
+import cors from 'cors';
 
 const app = express();
+app.use(cors({credentials:true, origin:"http://localhost:5173"}))
 app.use (express.json());
 
 //Routes

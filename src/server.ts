@@ -1,9 +1,11 @@
 import app from "./app";
-const cors = require('cors');
+import cors from "cors";
+
+
 
 
 const PORT = process.env.PORT;
-app.use(cors({"Access-Control-Allow-Origin":"*"}));
+
 app.listen(PORT,()=>{
     console.log(`Server is running on Port: ${PORT}`)
 
