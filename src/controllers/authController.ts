@@ -89,13 +89,13 @@ export const login = async (req: Request, res:Response) => {
         const user = await prisma.findUnique({where :{email : correo}})
 
         if(!user) {
-            res.status(404).json({ message: "Credenciales incorrectas" });
+            res.status(403).json({ message: "Credenciales incorrectas" });
             return
         }
         const passwordMatch = await comparePasswords(contrasena, user.password);
         console.log("Password match" +passwordMatch)
         if (passwordMatch == false) {
-             res.status(404).json({ message: "Credenciales incorrectas" });
+             res.status(403).json({ message: "Credenciales incorrectas" });
         }
         
         else {
@@ -126,7 +126,7 @@ export const login = async (req: Request, res:Response) => {
 
 
 
-    } catch(error){
+    } catch(error:any){
          res.status(404).json({ message: error});
         console.log('Error:',error)
 

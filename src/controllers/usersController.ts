@@ -125,8 +125,6 @@ export const updateUser = async (req:Request, res:Response) =>{
   
 
 
-
-
 }
 
 export const getAllUsers = async (req: Request, res: Response): Promise<void> => {
@@ -140,11 +138,11 @@ export const getAllUsers = async (req: Request, res: Response): Promise<void> =>
 }
 
 export const getUserById = async (req: Request, res: Response): Promise<void> => {
-    const userId = parseInt(req.params.id)
+    const userUid = req.params.uid
     try {
         const user = await prisma.findUnique({
             where: {
-                id: userId
+                uid: userUid
             }
         })
         if (!user) {
@@ -159,16 +157,16 @@ export const getUserById = async (req: Request, res: Response): Promise<void> =>
 }
 
 export const deleteUser = async (req: Request, res: Response): Promise<void> => {
-    const userId = parseInt(req.params.id)
+    const userUid = req.params.uid
     try {
         await prisma.delete({
             where: {
-                id: userId
+                uid: userUid
             }
         })
 
         res.status(200).json({
-            message: `El usuario ${userId} ha sido eliminado`
+            message: `El usuario ${userUid} ha sido eliminado`
         }).end()
 
     } catch (error: any) {
