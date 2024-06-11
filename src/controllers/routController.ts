@@ -12,7 +12,7 @@ export const registerRoute = async (req:Request, res:Response)=>
 
         } =req.body;
 
-        const  mar_idFK = parseInt(mar_id);
+        const  mar_idfk = parseInt(mar_id);
         const uid = randomUUID();
         try {
             if (!name){
@@ -30,7 +30,7 @@ export const registerRoute = async (req:Request, res:Response)=>
                     uid,
                     rout_name : name,
                     rout_image : image,
-                    mar_idFK : mar_idFK
+                    mar_idfk : mar_idfk
                 }
             });
             res.status(201).json({ message:"Ruta registrada exitosamente" })
@@ -82,13 +82,13 @@ export const updateRoute = async (req: Request, res: Response): Promise<void> =>
 
         let dataToUpdate: any = { ...req.body }
 
-       const mar_idFK = parseInt(mar_id);
+       const mar_idfk = parseInt(mar_id);
 
         if (name) {
             dataToUpdate.rout_name = name
         }
         if (mar_id) {
-            dataToUpdate.mar_idFK = mar_idFK
+            dataToUpdate.mar_idfk = mar_idfk
         }
         if (image) {
             dataToUpdate.rout_image = image

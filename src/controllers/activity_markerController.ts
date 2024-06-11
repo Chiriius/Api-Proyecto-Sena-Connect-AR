@@ -28,7 +28,7 @@ export const registerActivity = async (req: Request, res: Response) => {
 
         const existingActivity = await prisma.findFirst({
             where: {
-                mar_idFK: marker.mar_id,
+                mar_idfk: marker.mar_id,
             },
         });
 
@@ -49,7 +49,7 @@ export const registerActivity = async (req: Request, res: Response) => {
         } else {
             activity = await prisma.create({
                 data: {
-                    mar_idFK: marker.mar_id,
+                    mar_idfk: marker.mar_id,
                     scan_date: fecharegistro,
                     count: 1,
                 },

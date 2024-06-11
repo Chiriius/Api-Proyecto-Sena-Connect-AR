@@ -36,12 +36,12 @@ model route {
   uid        String  @unique
   rout_name  String
   rout_image String?
-  mar_idFK   Int
+  mar_idfk   Int
 }
 
 model activity_marker {
   act_id    Int       @id @default(autoincrement())
-  mar_idFK  Int        
+  mar_idfk  Int
   scan_date DateTime?
   count     Int
 }

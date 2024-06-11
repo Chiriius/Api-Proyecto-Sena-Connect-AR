@@ -3,6 +3,6 @@ export interface Route {
     uid : String;
     name : String;
     image : String | null;
-    mar_idFK : number;
+    mar_idfk : number;
 
 }

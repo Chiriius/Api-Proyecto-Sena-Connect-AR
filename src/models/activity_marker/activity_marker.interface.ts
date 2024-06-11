@@ -1,6 +1,6 @@
 export interface Activity {
     act_id : number;
-    mar_idFK: number;
+    mar_idfk: number;
     scan_date : Date;
     count : number;
     
