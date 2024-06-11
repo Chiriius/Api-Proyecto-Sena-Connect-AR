@@ -1,0 +1,9 @@
+
+.env
+node_modules/
+postgres/
+Dockerfile
+env.template
+.dockerignore
+.git
+.gitignore

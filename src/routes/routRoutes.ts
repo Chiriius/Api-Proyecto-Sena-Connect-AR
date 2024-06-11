@@ -1,6 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express'
 import jwt from 'jsonwebtoken'
-import { register,getAllMarkers, getMarkerById, updateMarker, deleteMarker } from '../controllers/markerController'
+import { registerRoute, updateRoute, getRouteById, deleteRoute, getAllRoutes} from '../controllers/routController'
 const router = express.Router()
 const bodyParser = require("body-parser"); 
 const JWT_SECRET = process.env.JWT_SECRET || 'default-secret'
@@ -27,11 +27,11 @@ const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
 
 }
 
-router.post ('/', register)
-router.get ('/', getAllMarkers)
-router.get('/:id',getMarkerById)
-router.put('/:id',updateMarker)
-router.delete('/:id',authenticateToken,deleteMarker)
+router.post ('/', registerRoute)
+router.get ('/', getAllRoutes)
+router.get('/:id',getRouteById)
+router.put('/:id',updateRoute)
+router.delete('/:id',authenticateToken,deleteRoute)
 
 
 export default router;

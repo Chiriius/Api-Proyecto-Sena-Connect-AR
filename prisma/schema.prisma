@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -14,35 +8,40 @@ datasource db {
 }
 
 model user {
-  id Int @id @default(autoincrement())
-  uid String @unique
-  email String @unique
-  password String
-  nombre String
-  apellido String
-  departamento String
-  ciudad String
-  barrio String
-  direccion String
-  genero String
-  rol  Int
-  fechanacimiento  DateTime?
-  fecharegistro    DateTime?
+  id              Int       @id @default(autoincrement())
+  uid             String    @unique
+  email           String    @unique
+  password        String
+  nombre          String
+  apellido        String
+  departamento    String
+  ciudad          String
+  barrio          String
+  direccion       String
+  genero          String
+  rol             Int
+  fechanacimiento DateTime?
+  fecharegistro   DateTime?
 }
 
 model marker {
-  mar_id        Int    @id @default(autoincrement())
-  uid           String  @unique
-  mar_name      String
+  mar_id          Int    @id @default(autoincrement())
+  uid             String @unique
+  mar_name        String
   mar_description String
-  routes        route[]
 }
 
 model route {
-  rout_id        Int     @id @default(autoincrement())
-  uid            String  @unique
-  rout_name      String
-  rout_image     String
-  marker         marker  @relation(fields: [rout_marker_fk], references: [mar_id])
-  rout_marker_fk Int
+  rout_id    Int     @id @default(autoincrement())
+  uid        String  @unique
+  rout_name  String
+  rout_image String?
+  mar_idFK   Int
+}
+
+model activity_marker {
+  act_id    Int       @id @default(autoincrement())
+  mar_idFK  Int        
+  scan_date DateTime?
+  count     Int
 }
