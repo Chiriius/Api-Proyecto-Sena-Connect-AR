@@ -26,35 +26,27 @@ export const registerActivity = async (req: Request, res: Response) => {
             return;
         }
 
-        const existingActivity = await prisma.findFirst({
+        const lastActivity = await prisma.findFirst({
             where: {
                 mar_idfk: marker.mar_id,
             },
+            orderBy: {
+                act_id: 'desc',
+            },
         });
 
-        let activity;
-
-        if (existingActivity) {
-            activity = await prisma.update({
-                where: {
-                    act_id: existingActivity.act_id,
-                },
-                data: {
-                    scan_date: fecharegistro,
-                    count: {
-                        increment: 1,
-                    },
-                },
-            });
-        } else {
-            activity = await prisma.create({
-                data: {
-                    mar_idfk: marker.mar_id,
-                    scan_date: fecharegistro,
-                    count: 1,
-                },
-            });
+        let count = 1;
+        if (lastActivity) {
+            count = lastActivity.count + 1;
         }
+
+        const activity = await prisma.create({
+            data: {
+                mar_idfk: marker.mar_id,
+                scan_date: fecharegistro,
+                count,
+            },
+        });
 
         res.status(201).json({ message: "Actividad registrada exitosamente", count: activity.count });
     } catch (error: any) {
