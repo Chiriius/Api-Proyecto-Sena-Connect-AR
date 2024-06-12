@@ -29,9 +29,9 @@ const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
 
 router.post ('/', register)
 router.get ('/', getAllMarkers)
-router.get('/:id',getMarkerById)
-router.put('/:id',updateMarker)
-router.delete('/:id',authenticateToken,deleteMarker)
+router.get('/:uid',getMarkerById)
+router.put('/:uid',updateMarker)
+router.delete('/:uid',authenticateToken,deleteMarker)
 
 
 export default router;
