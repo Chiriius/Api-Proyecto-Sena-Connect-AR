@@ -1,8 +1,8 @@
 export interface Route {
     rout_id : number;
     uid : String;
-    name : String;
-    image : String | null;
+    rout_name : String;
+    rout_image : String | null;
     mar_idfk : number;
 
 }

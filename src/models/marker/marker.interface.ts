@@ -1,7 +1,7 @@
 export interface Marker {
     mar_id : number;
     uid : String;
-    name : String;
-    description : String;
+    mar_name : String;
+    mar_description : String;
 
 }
