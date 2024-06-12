@@ -73,18 +73,18 @@ export const getMarkerById = async (req: Request, res: Response): Promise<void> 
 
 export const updateMarker = async (req: Request, res: Response): Promise<void> => {
     const markerUid = req.params.uid
-    const { name, description } = req.body
+    const { mar_name, mar_description } = req.body
     try {
 
         let dataToUpdate: any = { ...req.body }
 
        
 
-        if (name) {
-            dataToUpdate.mar_name = name
+        if (mar_name) {
+            dataToUpdate.mar_name = mar_name
         }
-        if (description) {
-            dataToUpdate.mar_description = description
+        if (mar_description) {
+            dataToUpdate.mar_description = mar_description
         }
 
         const marker = await prisma.update({

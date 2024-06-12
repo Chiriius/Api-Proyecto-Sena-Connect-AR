@@ -77,21 +77,21 @@ export const getRouteById = async (req: Request, res: Response): Promise<void> =
 
 export const updateRoute = async (req: Request, res: Response): Promise<void> => {
     const routeUid = req.params.uid
-    const { name, image,mar_id } = req.body
+    const { rout_name, rout_image,mar_id } = req.body
     try {
 
         let dataToUpdate: any = { ...req.body }
 
        const mar_idfk = parseInt(mar_id);
 
-        if (name) {
-            dataToUpdate.rout_name = name
+        if (rout_name) {
+            dataToUpdate.rout_name = rout_name
         }
         if (mar_id) {
             dataToUpdate.mar_idfk = mar_idfk
         }
-        if (image) {
-            dataToUpdate.rout_image = image
+        if (rout_image) {
+            dataToUpdate.rout_image = rout_image
         }
 
         const route = await prisma.update({
